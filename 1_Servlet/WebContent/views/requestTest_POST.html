@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>POST 방식으로 요청 후 응답페이지 받아보기</h1>
+	
+	<p>
+		특징1. POST 방식으로 요청하는건 URL의 Body영역에 데이터를 포함시켜 요청된다 <br>
+		-사용자가 입력한 값(데이터)들이 URL에 노출되지 않음<br>
+		-보안 유지가 가능하다 <br>
+		-즉, 로그인이나 회원가입 같은 경우 POST 방식이 적합하다. <br><br>
+		
+		특징2. Body영역은 전송하는 길이에 제한이 없다 <br>
+		-즉, 게시판 작성같은 경우 Post 방식이 적합하다 <br><br>
+		
+		특징3. 즐겨찾기는 가능하나 전달되는 데이터가 URL에 노출되어 있지 않음 (기존에 봤던 응답화면을 볼 순 없을 것) <br><br>
+		
+		특징4. 최대 요청시간(time out)이 존재하며 페이지 요청, 기다리는 시간이 있다 <br>
+	</p>
+	
+		<h2>개인정보 입력 - POST </h2>
+	
+	<form action="/firstwebproject/test2.do" method="post"> <!--절대 경로 방식-->
+        <ul>
+            <li>
+                이름: <input type="text" name="name"> <!--input태그 사용시 key값은 반드시 넘겨줘야 한다 (name)-->
+            </li>
+            <li>
+                성별:
+                남자 <input type="radio" name="gender" value="M">
+                여자 <input type="radio" name="gender" value="F">
+                <!-- radio 버튼 사용시 같은 묶음으로 묶어줄 경우는 key를 동일하게 지정-->
+            </li>
+            <li>
+                나이: <input type="number" name="age">
+            </li>
+            <li>
+                사는 도시:
+                <select name="city">
+                    <option value="서울시">서울시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청도">충청도</option>
+                    <option value="경상도">경상도</option>
+                    <option value="전라도">전라도</option>
+                    <option value="제주도">제주도</option>
+                </select>
+            </li>
+            <li>
+                키: <input type="range" name="height" min="140" max="200">
+            </li>
+            <li>
+                몸무게: <input type="number" name="weight">
+            </li>
+            <li>
+                좋아하는 음식(모두 고르시오):
+                한식 <input type="checkbox" name="food" value="한식">
+                일식 <input type="checkbox" name="food" value="일식">
+                중식 <input type="checkbox" name="food" value="중식">
+                분식 <input type="checkbox" name="food" value="분식">
+                <!-- checkbox 사용시 같은 묶음으로 묶어줄 경우는 radio버튼과 마찬가지로 key를 동일하게 지정 
+                    한개의 key값에 여러개의 value가 묶어서 넘어간다(배열)-->
+            </li>
+
+            <li>
+                <input type="submit">
+                <input type="reset">
+            </li>
+
+        </ul>
+
+    </form>
+    
+</body>
+</html>
